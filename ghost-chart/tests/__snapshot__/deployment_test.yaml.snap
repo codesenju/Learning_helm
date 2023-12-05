@@ -1,0 +1,28 @@
+manifest should match snapshot:
+  1: |
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        app: ghost
+      name: ghost
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          app: ghost
+      template:
+        metadata:
+          labels:
+            app: ghost
+        spec:
+          containers:
+            - env:
+                - name: NODE_ENV
+                  value: development
+              image: nginx:alpine
+              name: ghost
+              ports:
+                - containerPort: 80
+                  name: http
+          restartPolicy: Always

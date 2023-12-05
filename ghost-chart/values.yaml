@@ -1,0 +1,16 @@
+ghost:
+  replicas: 1
+  image: nginx:alpine
+  # mysql:
+  #   host: mysql
+  #   database: ghost
+  #   username: ghost
+  #   password: ghost
+  # port: 2368
+  # adminPassword: password123
+  containerPort: 80
+
+ingress:
+  hostname: ghost.demo
+  ingressClassName: "traefik"
+  annotations: {}
